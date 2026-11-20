@@ -1,0 +1,133 @@
+{
+  "books": [
+    "WA",
+    "WB"
+  ],
+  "catalogs": [
+    {
+      "revision": "v1",
+      "aliases": []
+    },
+    {
+      "revision": "v2",
+      "aliases": [
+        {
+          "from": "WB",
+          "to": "WA"
+        }
+      ]
+    }
+  ],
+  "copies": [
+    {
+      "id": "C1",
+      "book": "WA",
+      "branch": "north",
+      "format": "hardcover"
+    },
+    {
+      "id": "C2",
+      "book": "WA",
+      "branch": "north",
+      "format": "paperback"
+    },
+    {
+      "id": "C3",
+      "book": "WB",
+      "branch": "south",
+      "format": "paperback"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "TB",
+      "reader": "RB",
+      "book": "WB",
+      "seq": 1,
+      "branches": [
+        "north"
+      ],
+      "formats": [
+        "hardcover"
+      ]
+    },
+    {
+      "id": "TA",
+      "reader": "RA",
+      "book": "WA",
+      "seq": 2,
+      "branches": [
+        "north"
+      ],
+      "formats": [
+        "hardcover",
+        "paperback"
+      ]
+    },
+    {
+      "id": "TC",
+      "reader": "RC",
+      "book": "WB",
+      "seq": 3,
+      "branches": [
+        "south"
+      ],
+      "formats": [
+        "paperback"
+      ]
+    }
+  ],
+  "held": [
+    {
+      "id": "H3",
+      "catalog": "v1",
+      "ticket": "TC",
+      "reader": "RC",
+      "copy": "C3",
+      "branch": "south"
+    }
+  ],
+  "operations": [
+    {
+      "action": "preview",
+      "id": "P1",
+      "catalog": "v1",
+      "copy": "C1"
+    },
+    {
+      "action": "switch_catalog",
+      "catalog": "v2"
+    },
+    {
+      "action": "confirm_preview",
+      "id": "J1",
+      "preview": "P1"
+    },
+    {
+      "action": "reserve",
+      "id": "J2",
+      "catalog": "v2",
+      "copy": "C1"
+    },
+    {
+      "action": "reserve",
+      "id": "J3",
+      "catalog": "v2",
+      "copy": "C2"
+    },
+    {
+      "action": "pickup",
+      "id": "J4",
+      "hold": "H3",
+      "reader": "RA",
+      "copy": "C3"
+    },
+    {
+      "action": "pickup",
+      "id": "J5",
+      "hold": "H3",
+      "reader": "RC",
+      "copy": "C3"
+    }
+  ]
+}
